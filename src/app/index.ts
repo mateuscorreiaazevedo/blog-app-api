@@ -2,13 +2,14 @@ import cors from '@fastify/cors'
 import jwt from '@fastify/jwt'
 import fastify from 'fastify'
 import dotenv from 'dotenv'
+import { routes } from '../routes'
 
 const app = fastify()
 dotenv.config()
 
-const secret = process.env.JWT_SECRET || 'secret'
 const port = process.env.PORT ? Number(process.env.PORT) : 80
 const host = process.env.HOST ? process.env.HOST : ''
+const secret = process.env.JWT_SECRET || 'secret'
 
 app.register(cors, {
   origin: true
@@ -18,8 +19,8 @@ app.register(jwt, {
   secret
 })
 
-app.get('/', () => {
-  return 'Hello World'
+app.register(routes, {
+  prefix: '/api'
 })
 
 app

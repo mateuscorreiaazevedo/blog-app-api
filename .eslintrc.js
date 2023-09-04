@@ -17,6 +17,7 @@ module.exports = {
       }
     ],
     '@typescript-eslint/no-non-null-assertion': 'off',
+    camelcase: 'off',
     '@typescript-eslint/no-unused-vars': [
       'warn',
       {

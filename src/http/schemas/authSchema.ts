@@ -8,5 +8,9 @@ export const authSchema = {
     last_name: z.string().nonempty('field required.'),
     password: z.string().nonempty('field required.'),
     confirm_password: z.string().nonempty('field required.')
+  }),
+  login: z.object({
+    email_username: z.string().nonempty('field required.'),
+    password: z.string().nonempty('field required')
   })
 }
